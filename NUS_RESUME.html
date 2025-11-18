@@ -18,24 +18,6 @@
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      line-height: 1.6;
-      background: #050816;
-      color: #e5e7eb;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    ul {
-      list-style: none;
-    }
-
     /* --------- THEME --------- */
     :root {
       --bg: #050816;
@@ -65,8 +47,21 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+      background: radial-gradient(circle at top, var(--bg-elevated) 0, var(--bg) 55%, var(--bg) 100%);
       color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
     }
 
     .page {
@@ -88,6 +83,15 @@
         transparent
       );
       margin-bottom: 1.5rem;
+    }
+
+    body.light .nav {
+      background: linear-gradient(
+        to bottom,
+        rgba(249, 250, 251, 0.96),
+        rgba(249, 250, 251, 0.72),
+        transparent
+      );
     }
 
     .nav-inner {
@@ -186,7 +190,7 @@
       border: 1px solid var(--border-subtle);
       padding: 0.35rem 0.6rem;
       font-size: 0.8rem;
-      background: rgba(15, 23, 42, 0.8);
+      background: var(--bg-chip);
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -323,19 +327,19 @@
       gap: 0.45rem;
       cursor: pointer;
       color: var(--text-main);
-      background: rgba(15, 23, 42, 0.8);
+      background: var(--bg-elevated);
       transition: background var(--transition-fast), transform var(--transition-fast),
         border-color var(--transition-fast);
     }
 
     .btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.95);
+      background: var(--bg-chip);
       border-color: var(--accent);
       transform: translateY(-1px);
     }
 
     .hero-side-card {
-      background: radial-gradient(circle at top left, var(--accent-soft), #020617);
+      background: radial-gradient(circle at top left, var(--accent-soft), var(--bg-elevated));
       border-radius: 24px;
       padding: 1.4rem 1.2rem 1.2rem;
       box-shadow: var(--shadow-soft);
@@ -390,6 +394,18 @@
       box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
     }
 
+    /* Make status-chip readable in light mode */
+    body.light .status-chip {
+      color: #166534;
+      border-color: rgba(22, 101, 52, 0.5);
+      background: radial-gradient(circle at top left, rgba(74, 222, 128, 0.45), rgba(187, 247, 208, 0.95));
+    }
+
+    body.light .status-dot {
+      background: #16a34a;
+      box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.5);
+    }
+
     .hero-side-body {
       position: relative;
       z-index: 1;
@@ -406,7 +422,7 @@
       padding: 0.55rem 0.7rem;
       border-radius: 14px;
       border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.88);
+      background: var(--bg-chip);
     }
 
     .metric-label {
@@ -485,8 +501,8 @@
       border: 1px solid var(--border-subtle);
       background: linear-gradient(
         135deg,
-        rgba(15, 23, 42, 0.98),
-        rgba(15, 23, 42, 0.93)
+        var(--bg-elevated),
+        var(--bg-elevated)
       );
       padding: 1.3rem 1.2rem;
       box-shadow: var(--shadow-soft);
@@ -529,7 +545,7 @@
       border-radius: var(--radius-pill);
       padding: 0.22rem 0.6rem;
       border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.9);
+      background: var(--bg-chip);
     }
 
     /* --------- EXPERIENCE / FSAE --------- */
@@ -537,7 +553,7 @@
       position: relative;
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.96);
+      background: var(--bg-elevated);
       box-shadow: var(--shadow-soft);
       padding: 1.3rem 1.3rem 0.4rem;
       overflow: hidden;
@@ -609,7 +625,7 @@
       font-size: 0.72rem;
       border: 1px solid rgba(148, 163, 184, 0.6);
       color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.9);
+      background: var(--bg-chip);
     }
 
     .timeline ul {
@@ -648,7 +664,7 @@
     .card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.96);
+      background: var(--bg-elevated);
       padding: 1.15rem 1.2rem;
       box-shadow: var(--shadow-soft);
     }
@@ -700,7 +716,7 @@
     .project {
       border-radius: 14px;
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.9);
+      background: var(--bg-elevated);
       padding: 0.9rem 0.95rem;
       font-size: 0.85rem;
       display: flex;
@@ -728,7 +744,7 @@
     .hardware-card {
       border-radius: 14px;
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.95);
+      background: var(--bg-elevated);
       padding: 0.9rem 0.95rem 1rem;
       font-size: 0.85rem;
     }
@@ -766,7 +782,7 @@
     .skills-group {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.95);
+      background: var(--bg-elevated);
       padding: 0.95rem 1rem;
       font-size: 0.85rem;
     }
@@ -823,7 +839,7 @@
       padding: 0.2rem 0.55rem;
       font-size: 0.75rem;
       color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.9);
+      background: var(--bg-chip);
     }
 
     .badge .dot {
@@ -858,6 +874,7 @@
         <a href="#projects">Projects</a>
         <a href="#hardware">Hardware</a>
         <a href="#skills">Skills</a>
+        <a href="#references">References</a>
         <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
           <span class="icon">✉️</span>
           <span>Contact</span>
@@ -930,7 +947,7 @@
             <div class="metric">
               <div class="metric-label">Experience</div>
               <div class="metric-value">NUS FSAE</div>
-              <div class="metric-sub">LV, BMS, Telemetry</div>
+              <div class="metric-sub">LV, BMS, Telemetry, MoTeC &amp; controls</div>
             </div>
             <div class="metric">
               <div class="metric-label">FYP</div>
@@ -1031,6 +1048,16 @@
               thresholds while the hardwired analogue shutdown path remains the primary safety
               mechanism.
             </li>
+            <li>
+              Developed and iteratively tuned a launch-control / wheel-speed limiting algorithm
+              in MoTeC M1 Build, using logged wheel-speed and torque data to set slip targets
+              and refine PI gains for more repeatable launches.
+            </li>
+            <li>
+              Implemented and tuned regenerative braking in MoTeC M1 Build and the inverter,
+              using brake-pressure thresholds, speed-dependent torque limits and BMS
+              charge-enable logic to maximise energy recovery while avoiding pack over-voltage.
+            </li>
           </ul>
         </div>
 
@@ -1080,6 +1107,12 @@
               Implemented bidirectional TCP messaging between race engineer and driver through
               the dashboard (walkie-talkies are restricted in Singapore), enabling text-based
               strategy calls and cooling instructions.
+            </li>
+            <li>
+              At the 2025 FSAE event, R25e achieved a best placing of 7th overall and improved
+              endurance time from 1717.374&nbsp;s with R24e to 1677.331&nbsp;s with R25e
+              (≈40&nbsp;s faster), helped by being able to run closer to thermal limits thanks
+              to live telemetry and temperature awareness.
             </li>
           </ul>
         </div>
@@ -1155,20 +1188,23 @@
               handling and diagnostics, with a focus on FSAE EV safety rules.
             </li>
             <li>
-              Analysed MoTeC and inverter logs to compare the CM200DX against the previous
-              Bamocar D3 setup: the Cascadia package delivers more consistent torque at the
-              80&nbsp;kW power limit, reduces time spent in thermal derating and improves
-              repeatability of acceleration over longer runs.
-            </li>
-            <li>
-              Documented improvements in drivability from the CM200DX’s current control and
-              torque shaping – particularly in launch and mid-corner exit – and linked these
-              to calibration choices for torque limits and regen.
+              Processed combined Bamocar (R24E/R25E) and Cascadia (R25Evo) datasets to
+              quantify performance: CM200DX raised 75th percentile longitudinal acceleration
+              from ≈1.37&nbsp;g to ≈1.49&nbsp;g (≈8% gain) and increased terminal speed from
+              ≈86&nbsp;km/h (max ≈93&nbsp;km/h) to ≈119&nbsp;km/h (max ≈129&nbsp;km/h),
+              showing that torque is now limited by tyres and the 80&nbsp;kW cap rather than
+              inverter current capability.
             </li>
             <li>
               Designed a GLV BMS architecture from first principles: sensing, protection,
               communication and software strategy for the grounded low-voltage pack that
               supplies control electronics and ECUs.
+            </li>
+            <li>
+              Backed up the practical BMS work with Coursera coursework taught by Prof. Gregory
+              Plett (University of Colorado Boulder): “Introduction to Battery-Management
+              Systems” and “Equivalent Circuit Cell Model Simulation”, covering cell models,
+              SOC estimation and protection strategies.
             </li>
             <li>
               Planned the GLV BMS so that its firmware and communication concepts can be
@@ -1217,11 +1253,32 @@
         <div class="section-header" style="margin-bottom: 0.9rem;">
           <h3 class="section-title">Additional Projects</h3>
           <p class="section-subtitle">
-            Early projects in AI, web development and hardware hackathons.
+            Early projects in AI, web development, FPGA, analog IC design and hardware hackathons.
           </p>
         </div>
 
         <div class="projects-grid">
+          <div class="project">
+            <div class="project-title">Pipelined RISC-V CPU on Artix-7 FPGA (CG3207)</div>
+            <div class="project-meta">2024</div>
+            <p>
+              Designed and implemented a pipelined RISC-V CPU core in Verilog on an Artix-7
+              FPGA development board as part of NUS module CG3207, including instruction
+              decode, ALU, basic hazard handling and memory-mapped IO to LEDs, switches and
+              UART, and tested it using custom assembly programs.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">Differential Amplifier Design in Cadence</div>
+            <div class="project-meta">2024</div>
+            <p>
+              Used Cadence Virtuoso and Spectre to design and simulate a CMOS differential
+              amplifier with mid-band gain &gt;1000, performing DC operating-point, AC
+              (frequency) and transient analysis to validate gain, bandwidth and step response.
+            </p>
+          </div>
+
           <div class="project">
             <div class="project-title">Aquaponics Hackathon – First Prize</div>
             <div class="project-meta">Jul 2022</div>
@@ -1275,15 +1332,15 @@
       <div class="section-header">
         <h2 class="section-title">Selected Hardware</h2>
         <p class="section-subtitle">
-          A sample of boards and wiring work from NUS FSAE. (Replace placeholders with your own images.)
+          A sample of boards and wiring work from NUS FSAE.
         </p>
       </div>
 
       <div class="hardware-grid">
-        <!-- NOTE: swap src attributes to your real images when you have them -->
+        <!-- Dashboard PCB -->
         <article class="hardware-card">
           <img
-            src="dashboard-pcb-placeholder.png"
+            src="https://1102heavy.github.io/Sadik_Mohammad_Farhan_Resume/dashboard_live_telemetry_assembly.jpg"
             alt="R25e dashboard PCB with Teensy 4.1 and CAN transceivers"
             class="hardware-thumb"
           />
@@ -1297,9 +1354,10 @@
           </p>
         </article>
 
+        <!-- Front LV Harness -->
         <article class="hardware-card">
           <img
-            src="front-harness-placeholder.png"
+            src="https://1102heavy.github.io/Sadik_Mohammad_Farhan_Resume/front_harness.jpg"
             alt="Front low-voltage harness on the FSAE car"
             class="hardware-thumb"
           />
@@ -1313,9 +1371,10 @@
           </p>
         </article>
 
+        <!-- AMS / BMS Module -->
         <article class="hardware-card">
           <img
-            src="bms-module-placeholder.png"
+            src="https://1102heavy.github.io/Sadik_Mohammad_Farhan_Resume/GLV_BMS_PCB.jpg"
             alt="Prototype AMS / BMS module PCB"
             class="hardware-thumb"
           />
@@ -1327,6 +1386,23 @@
             connectors for voltage and temperature sensing looms.
           </p>
         </article>
+
+        <!-- BSPD PCB -->
+        <article class="hardware-card">
+          <img
+            src="https://1102heavy.github.io/Sadik_Mohammad_Farhan_Resume/BSPD_PCB.jpg"
+            alt="Brake System Plausibility Device PCB with STM32 monitoring"
+            class="hardware-thumb"
+          />
+          <div class="hardware-title">Brake System Plausibility Device (BSPD) PCB</div>
+          <div class="hardware-meta">Comparator-based shutdown · STM32 monitoring · Safety interlock</div>
+          <p>
+            Redesigned BSPD board that keeps the hardwired analogue shutdown path as the primary
+            safety mechanism while adding an STM32 microcontroller to non-safety-critically
+            monitor comparator outputs and timing, log plausibility events and support threshold
+            tuning during testing.
+          </p>
+        </article>
       </div>
     </section>
 
@@ -1335,7 +1411,7 @@
       <div class="section-header">
         <h2 class="section-title">Skills &amp; Achievements</h2>
         <p class="section-subtitle">
-          Embedded systems, control, electronics design and software.
+          Embedded systems, control, electronics design, FPGA and software.
         </p>
       </div>
 
@@ -1345,6 +1421,15 @@
           <p class="skills-list">
             C for STM32 and Teensy · ARM fundamentals · MoTeC M1 Build · CAN bus, UART, SPI ·
             sensor interfacing · basic power electronics · custom BMS &amp; AMS design.
+          </p>
+        </div>
+
+        <div class="skills-group">
+          <h4>Digital Design &amp; FPGA</h4>
+          <p class="skills-list">
+            Verilog for digital design · pipelined RISC-V CPU implementation on Artix-7 FPGA
+            (CG3207) · familiarity with FPGA development flow and using on-board peripherals
+            (LEDs, switches, seven-seg, UART) for debugging and verification.
           </p>
         </div>
 
@@ -1360,7 +1445,8 @@
         <div class="skills-group">
           <h4>Modelling, Data &amp; Tools</h4>
           <p class="skills-list">
-            Python (NumPy, pandas, matplotlib) · MATLAB/Simulink · LTspice · Git · data logging
+            Python (NumPy, pandas, matplotlib) · MATLAB/Simulink · LTspice · Cadence
+            Virtuoso/Spectre (analog IC design &amp; simulation) · Git · data logging
             &amp; analysis for vehicle performance and endurance planning.
           </p>
         </div>
@@ -1374,10 +1460,20 @@
         </div>
 
         <div class="skills-group">
+          <h4>Courses &amp; Self-Learning</h4>
+          <p class="skills-list">
+            Coursera: “Introduction to Battery-Management Systems” and “Equivalent Circuit Cell
+            Model Simulation” (Prof. Gregory Plett, University of Colorado Boulder). Udemy:
+            “Advanced Embedded Systems Bare-Metal Programming Ground Up”, “Applied Control
+            Systems 1: Autonomous Cars – Math + PID + MPC”, and “Field Oriented Motor Control
+            Development in MATLAB Simulink”.
+          </p>
+        </div>
+
+        <div class="skills-group">
           <h4>Languages &amp; Interests</h4>
           <p class="skills-list">
-            English; Bengali (native). Interests: motorsport, sky watching, robotics, gaming
-            and cricket.
+            English. Interests: motorsport, sky watching, robotics, gaming and cricket.
           </p>
         </div>
 
@@ -1388,6 +1484,39 @@
             Top 7 – Block Champs Gaming Hackathon (Aug 2022).
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section id="references">
+      <div class="section-header">
+        <h2 class="section-title">References</h2>
+        <p class="section-subtitle">
+          Academic and project supervisors who can speak to my work on FSAE and embedded systems.
+        </p>
+      </div>
+
+      <div class="card">
+        <ul>
+          <li>
+            <strong>Seah Kar Heng</strong> – Emeritus Professor, National University of Singapore<br />
+            Email:
+            <a href="mailto:mpeskh@nus.edu.sg">mpeskh@nus.edu.sg</a><br />
+            Relationship: Project Advisor
+          </li>
+          <li>
+            <strong>Lim Hong Wee</strong> – Research Engineer, National University of Singapore<br />
+            Email:
+            <a href="mailto:hongwee@nus.edu.sg">hongwee@nus.edu.sg</a><br />
+            Relationship: Project Supervisor
+          </li>
+          <li>
+            <strong>Kenneth Neo</strong> – Research Engineer, National University of Singapore<br />
+            Email:
+            <a href="mailto:kennethneo@nus.edu.sg">kennethneo@nus.edu.sg</a><br />
+            Relationship: Project Co-Supervisor
+          </li>
+        </ul>
       </div>
     </section>
 
