@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sadik Mohammad Farhan – Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Resume of Sadik Mohammad Farhan – Embedded Systems & Mechatronics Engineer, NUS FSAE." />
+
+  <style>
+    /* --------- CSS RESET --------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+      background: #050816;
+      color: #e5e7eb;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* --------- THEME --------- */
+    :root {
+      --bg: #050816;
+      --bg-elevated: #0f172a;
+      --bg-chip: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --transition-fast: 200ms ease;
+    }
+
+    body.light {
+      --bg: #f3f4f6;
+      --bg-elevated: #ffffff;
+      --bg-chip: #f3f4ff;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: rgba(209, 213, 219, 0.9);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+    }
+
+    .page {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 4rem;
+    }
+
+    /* --------- NAVBAR --------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.55),
+        transparent
+      );
+      margin-bottom: 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0.75rem 0.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .nav-name {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .nav-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(
+        to right,
+        var(--accent),
+        #a855f7,
+        #f97316
+      );
+      transition: width 220ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-btn {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.95rem;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+      color: var(--text-main);
+      transition: background var(--transition-fast), transform var(--transition-fast),
+        box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .nav-btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.65);
+      border-color: var(--accent);
+    }
+
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.6rem;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: background var(--transition-fast), color var(--transition-fast),
+        border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .theme-toggle:hover {
+      color: var(--text-main);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .theme-toggle .emoji {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 780px) {
+      .nav-inner {
+        flex-wrap: wrap;
+        row-gap: 0.6rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.9rem;
+      }
+
+      .nav-name {
+        font-size: 0.85rem;
+      }
+
+      .nav-tagline {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* --------- HERO --------- */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+      align-items: center;
+    }
+
+    .hero-main-title {
+      font-size: clamp(2.15rem, 3vw, 2.6rem);
+      font-weight: 750;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-main-title span.accent {
+      background: linear-gradient(120deg, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 0.55rem;
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+    }
+
+    .hero-pills {
+      margin-top: 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+
+    .hero-cta {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      border: none;
+      padding: 0.55rem 1.35rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      background: linear-gradient(120deg, #38bdf8, #8b5cf6, #f97316);
+      color: white;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+    }
+
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.8);
+      transition: background var(--transition-fast), transform var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hero-side-card {
+      background: radial-gradient(circle at top left, var(--accent-soft), #020617);
+      border-radius: 24px;
+      padding: 1.4rem 1.2rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-side-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.16), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-side-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-side-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .status-chip {
+      border-radius: var(--radius-pill);
+      padding: 0.2rem 0.65rem;
+      font-size: 0.75rem;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      color: #bbf7d0;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.2), transparent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 999px;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
+    }
+
+    .hero-side-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .metric {
+      padding: 0.55rem 0.7rem;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.88);
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.1rem;
+    }
+
+    .metric-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .metric-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .hero-side-footer {
+      margin-top: 0.45rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-side-footer a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .hero-side-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* --------- SECTION WRAPPER --------- */
+    section {
+      margin-bottom: 2.8rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* --------- EDUCATION --------- */
+    .edu-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.98),
+        rgba(15, 23, 42, 0.93)
+      );
+      padding: 1.3rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .edu-school {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .edu-period {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .edu-degree {
+      font-size: 0.96rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      padding: 0.22rem 0.6rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* --------- EXPERIENCE / FSAE --------- */
+    .timeline {
+      position: relative;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.96);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.3rem 0.4rem;
+      overflow: hidden;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 1.5rem;
+      bottom: 1.2rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      opacity: 0.7;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      padding-bottom: 1.1rem;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 7px;
+      top: 0.4rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: radial-gradient(circle at center, var(--accent), #0f172a);
+      border: 2px solid #020617;
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .timeline-org {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-dates {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .tag {
+      border-radius: var(--radius-pill);
+      padding: 0.14rem 0.55rem;
+      font-size: 0.72rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .timeline ul {
+      margin-top: 0.3rem;
+    }
+
+    .timeline li {
+      position: relative;
+      padding-left: 0.8rem;
+      font-size: 0.87rem;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+    }
+
+    /* --------- GRID SECTIONS --------- */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 1.6rem;
+    }
+
+    @media (max-width: 880px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 1.15rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card ul {
+      margin-top: 0.35rem;
+    }
+
+    .card li {
+      position: relative;
+      padding-left: 0.8rem;
+      font-size: 0.87rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+    }
+
+    /* --------- OTHER PROJECTS --------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .project {
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.9rem 0.95rem;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* --------- HARDWARE GALLERY --------- */
+    .hardware-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .hardware-card {
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 0.9rem 0.95rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .hardware-thumb {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      margin-bottom: 0.55rem;
+      display: block;
+      object-fit: cover;
+      max-height: 180px;
+      background: radial-gradient(circle at top, #1f2937, #020617);
+    }
+
+    .hardware-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .hardware-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    /* --------- SKILLS --------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .skills-group {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 0.95rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .skills-group h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .skills-list {
+      color: var(--text-muted);
+      font-size: 0.83rem;
+    }
+
+    /* --------- FOOTER / CONTACT --------- */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.8);
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--accent);
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* --------- SMALL UTILITIES --------- */
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.2rem 0.55rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* --------- MOBILE TWEAKS --------- */
+    @media (max-width: 600px) {
+      .page {
+        padding-inline: 0.9rem;
+      }
+      .hero-side-card {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div class="nav-name">Sadik Mohammad Farhan</div>
+        <div class="nav-tagline">Embedded Systems • Mechatronics • NUS FSAE</div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#education">Education</a>
+        <a href="#fsae">NUS FSAE</a>
+        <a href="#projects">Projects</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#skills">Skills</a>
+        <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <span class="icon">✉️</span>
+          <span>Contact</span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="emoji">🌙</span><span>Dark</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div>
+        <h1 class="hero-main-title">
+          Embedded Systems &amp; <span class="accent">Mechatronics Engineer</span>
+        </h1>
+        <p class="hero-subtitle">
+          Electrical Engineering student at NUS specialising in embedded systems and
+          control. Lead low-voltage and custom BMS development on the NUS Formula
+          Student EV, with a Final Year Project on Cascadia CM200DX inverter integration
+          and a ground-up GLV Battery Management System that forms the basis for a future
+          accumulator BMS.
+        </p>
+
+        <div class="hero-pills">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            NUS FSAE – Low Voltage Lead
+          </div>
+          <div class="pill">Current CAP: 4.45 / 5</div>
+          <div class="pill">Specialisation: Embedded Systems</div>
+          <div class="pill">Minor in Computing &amp; Innovation &amp; Design</div>
+        </div>
+
+        <div class="hero-cta">
+          <button class="btn-primary"
+            onclick="window.location.href='mailto:sadikfarhan108@gmail.com?subject=Opportunities%20with%20Red%20Bull%20Powertrains'">
+            Let’s talk
+            <span>→</span>
+          </button>
+          <button class="btn-ghost"
+            onclick="window.open('https://www.linkedin.com/in/sadik-mohammad','_blank')">
+            View LinkedIn
+          </button>
+          <button class="btn-ghost"
+            onclick="window.open('https://niikhilesh.github.io/Cascadia-System-Integration-HV-and-LV/','_blank')">
+            View Cascadia CM200DX FYP
+          </button>
+        </div>
+      </div>
+
+      <aside class="hero-side-card" aria-label="Quick facts">
+        <div class="hero-side-header">
+          <div class="hero-side-title">At a glance</div>
+          <div class="status-chip">
+            <span class="status-dot"></span>
+            Open to graduate roles
+          </div>
+        </div>
+
+        <div class="hero-side-body">
+          <div class="metrics-grid">
+            <div class="metric">
+              <div class="metric-label">Degree</div>
+              <div class="metric-value">B.Eng (EE)</div>
+              <div class="metric-sub">NUS, 2026 (Honours)</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Experience</div>
+              <div class="metric-value">NUS FSAE</div>
+              <div class="metric-sub">LV, BMS, Telemetry</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">FYP</div>
+              <div class="metric-value">CM200DX &amp; GLV BMS</div>
+              <div class="metric-sub">Path to Accumulator BMS</div>
+            </div>
+          </div>
+
+          <div class="hero-side-footer">
+            <span>Based in Singapore · +65 8602 3345</span>
+            <a href="mailto:sadikfarhan108@gmail.com">sadikfarhan108@gmail.com</a>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">
+          National University of Singapore – Electrical Engineering (Embedded Systems)
+        </p>
+      </div>
+
+      <article class="edu-card">
+        <div class="edu-header">
+          <div>
+            <div class="edu-school">National University of Singapore</div>
+            <div class="edu-degree">
+              Bachelor of Engineering, Electrical Engineering (Honours)
+            </div>
+          </div>
+          <div class="edu-period">Aug 2022 – Jul 2026 (expected)</div>
+        </div>
+
+        <div class="edu-meta">
+          <span class="chip">Specialisation: Embedded Systems</span>
+          <span class="chip">Minor in Computing</span>
+          <span class="chip">Second Major: Innovation &amp; Design</span>
+          <span class="chip">Current CAP: 4.45 / 5</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- NUS FSAE / EXPERIENCE -->
+    <section id="fsae">
+      <div class="section-header">
+        <h2 class="section-title">NUS FSAE &amp; Experience</h2>
+        <p class="section-subtitle">
+          Low-voltage, control systems, CM200DX integration and custom BMS for FSAE EVs.
+        </p>
+      </div>
+
+      <article class="timeline">
+        <!-- LV Lead -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Low Voltage Lead</div>
+              <div class="timeline-org">NUS FSAE – R26e Electric Vehicle</div>
+            </div>
+            <div class="timeline-dates">Jul 2025 – Present</div>
+          </div>
+
+          <div class="timeline-tags">
+            <span class="tag">System Architecture</span>
+            <span class="tag">Controls &amp; Safety</span>
+            <span class="tag">Dashboard &amp; Telemetry</span>
+          </div>
+
+          <ul>
+            <li>
+              Lead the low-voltage electrical &amp; embedded-systems team, responsible for
+              dashboards, telemetry, safety interlocks and control electronics on the R26e car.
+            </li>
+            <li>
+              Own LV system architecture and integration with the high-voltage powertrain, GLV
+              BMS and ECU, ensuring compliance with FSAE EV rules.
+            </li>
+            <li>
+              Driving a redesign of the dashboard and live telemetry system from a Teensy 4.1
+              dev board to a custom STM32-based controller. This aligns the microcontroller
+              family with the GLV/BMS work, improves component supply options and lets the team
+              design exactly the peripherals (CAN, power, IO) needed for the car instead of
+              adapting a general-purpose development board.
+            </li>
+            <li>
+              Exploring a migration of the telemetry link from TCP to UDP to push update rates
+              beyond ~10&nbsp;Hz where network conditions allow, with application-level
+              sequencing and checks to manage packet loss.
+            </li>
+            <li>
+              Redesigning the Brake System Plausibility Device (BSPD) PCB to add an STM32
+              microcontroller that non-safety-critically monitors comparator outputs and timing,
+              providing detailed data on brake/throttle plausibility events and helping tune
+              thresholds while the hardwired analogue shutdown path remains the primary safety
+              mechanism.
+            </li>
+          </ul>
+        </div>
+
+        <!-- LV Junior Engineer -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Low Voltage Junior Engineer</div>
+              <div class="timeline-org">NUS FSAE – R25e Electric Vehicle</div>
+            </div>
+            <div class="timeline-dates">Jul 2024 – Jul 2025</div>
+          </div>
+
+          <div class="timeline-tags">
+            <span class="tag">Dashboard PCB</span>
+            <span class="tag">CAN &amp; Telemetry</span>
+            <span class="tag">Driver Feedback</span>
+          </div>
+
+          <ul>
+            <li>
+              Designed the R25e dashboard hardware: a 2-layer PCB in Altium with a Teensy 4.1,
+              three CAN transceivers and multiple voltage regulators, learning practical PCB
+              concepts such as decoupling, return paths, CAN differential routing and connector
+              footprint design.
+            </li>
+            <li>
+              Re-implemented dashboard firmware so that numerical data on the display updated
+              smoothly instead of the slow, flickery behaviour on the R24e, using non-blocking
+              CAN parsing and optimised rendering routines.
+            </li>
+            <li>
+              Designed and implemented a live telemetry system as a standalone project:
+              integrated a SIM7600G cellular modem via board-to-board connector and UART on the
+              dashboard, and built a TCP client that streamed data to a Flask web server running
+              on Amazon Lightsail.
+            </li>
+            <li>
+              The web app provided live plots of pack temperature and estimated remaining energy
+              for endurance planning, plus experimental machine-learning based energy
+              predictions. Even when the model under-performed, the live temperature tracking
+              allowed race engineers to instruct the driver when to back off to avoid thermal
+              limits.
+            </li>
+            <li>
+              Implemented bidirectional TCP messaging between race engineer and driver through
+              the dashboard (walkie-talkies are restricted in Singapore), enabling text-based
+              strategy calls and cooling instructions.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bootcamp Apprentice -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Low Voltage Bootcamp Apprentice</div>
+              <div class="timeline-org">NUS FSAE</div>
+            </div>
+            <div class="timeline-dates">Jan 2024 – Jul 2024</div>
+          </div>
+
+          <div class="timeline-tags">
+            <span class="tag">Telemetry Concept</span>
+            <span class="tag">Harness Build</span>
+            <span class="tag">Driver-in-the-Loop</span>
+          </div>
+
+          <ul>
+            <li>
+              Conceptualised the team’s first idea for live telemetry using a Raspberry&nbsp;Pi
+              gateway on the car to bridge CAN data to a remote server – an early prototype of
+              the later Teensy + SIM7600 system.
+            </li>
+            <li>
+              Assisted with construction of the front low-voltage harness: ~65 single wires
+              including multiple CAN pairs; learned correct crimping, labelling, strain-relief
+              and chassis-grounding practices through hands-on build and continuity testing.
+            </li>
+            <li>
+              Helped integrate the team’s actual hydraulic brake pedal box into the ergonomics
+              simulator: used an Arduino&nbsp;Uno and Python’s serial library to stream brake
+              pressure into Assetto Corsa, letting drivers acclimatise to the real brake feel
+              before track testing.
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- FYP / BMS AND CM200DX -->
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Key Engineering Projects</h2>
+        <p class="section-subtitle">
+          Powertrain integration, GLV/accumulator BMS and driver-in-the-loop systems.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <!-- FYP: CM200DX + GLV BMS -->
+        <article class="card">
+          <div class="card-title-row">
+            <h3 class="card-title">Final Year Project – CM200DX &amp; GLV Battery Management</h3>
+            <span class="card-sub">2025 – Present</span>
+          </div>
+          <div class="badge">
+            <span class="dot"></span>
+            Cascadia CM200DX · GLV BMS · Path to Accumulator BMS
+          </div>
+          <ul>
+            <li>
+              Final Year Project combining high-voltage powertrain and low-voltage safety:
+              <strong>Cascadia System Integration – HV &amp; LV</strong> and a new GLV Battery
+              Management System for the NUS FSAE EV.
+            </li>
+            <li>
+              Integrated the Cascadia CM200DX inverter with the Emrax motor, accumulator,
+              ECU and LV systems, including precharge, contactor logic, torque request
+              handling and diagnostics, with a focus on FSAE EV safety rules.
+            </li>
+            <li>
+              Analysed MoTeC and inverter logs to compare the CM200DX against the previous
+              Bamocar D3 setup: the Cascadia package delivers more consistent torque at the
+              80&nbsp;kW power limit, reduces time spent in thermal derating and improves
+              repeatability of acceleration over longer runs.
+            </li>
+            <li>
+              Documented improvements in drivability from the CM200DX’s current control and
+              torque shaping – particularly in launch and mid-corner exit – and linked these
+              to calibration choices for torque limits and regen.
+            </li>
+            <li>
+              Designed a GLV BMS architecture from first principles: sensing, protection,
+              communication and software strategy for the grounded low-voltage pack that
+              supplies control electronics and ECUs.
+            </li>
+            <li>
+              Planned the GLV BMS so that its firmware and communication concepts can be
+              extended into a future accumulator BMS using galvanically-isolated slave
+              boards (Infineon TLE9012/TLE9015 with iso-UART daisy-chaining).
+            </li>
+          </ul>
+        </article>
+
+        <!-- R26 AMS / Accumulator BMS roadmap -->
+        <article class="card">
+          <div class="card-title-row">
+            <h3 class="card-title">R26 Accumulator Management System (Custom BMS – Ongoing)</h3>
+            <span class="card-sub">2025 – Present</span>
+          </div>
+          <div class="badge">
+            <span class="dot"></span>
+            TLE9012 / TLE9015 · STM32 · FreeRTOS
+          </div>
+          <ul>
+            <li>
+              Building on the GLV BMS work, designing a distributed Accumulator Management
+              System for the R26e pack using Infineon TLE9012/TLE9015 cell-monitoring devices
+              and an STM32 microcontroller.
+            </li>
+            <li>
+              Created schematics and multi-layer PCBs in Altium Designer, including iso-UART
+              communication, cell-voltage and temperature sensing, and FSAE-compliant
+              high-voltage connectors to each cell module.
+            </li>
+            <li>
+              Implementing embedded C firmware with FreeRTOS tasks for acquisition,
+              diagnostics, isolation monitoring and communication back to the vehicle ECU.
+            </li>
+            <li>
+              Aligning AMS firmware structure with the GLV BMS so that safety concepts,
+              diagnostics and communication patterns are consistent across the entire vehicle
+              energy system.
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Other Projects -->
+      <div style="margin-top: 1.8rem;">
+        <div class="section-header" style="margin-bottom: 0.9rem;">
+          <h3 class="section-title">Additional Projects</h3>
+          <p class="section-subtitle">
+            Early projects in AI, web development and hardware hackathons.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project">
+            <div class="project-title">Aquaponics Hackathon – First Prize</div>
+            <div class="project-meta">Jul 2022</div>
+            <p>
+              Proposed and designed a solution to automate fish harvesting in an aquaponics farm
+              using a dynamic net concept.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">AI Project: Degrees of Separation</div>
+            <div class="project-meta">May 2022</div>
+            <p>
+              Implemented a path-finding algorithm using a queue frontier to compute degrees of
+              separation on movie-database graphs.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">AI Project: Tic-tac-toe Game</div>
+            <div class="project-meta">Apr 2022</div>
+            <p>
+              Developed an algorithm that allows the computer to play against a human and choose
+              optimal “X”/“O” placements.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">Stock Predictor Web Application</div>
+            <div class="project-meta">Mar – Apr 2022</div>
+            <p>
+              Built a SQL-backed web app that fetches stock data via APIs, displays predictions,
+              and includes a dynamic password-strength checker.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">Flight Sim Trainer</div>
+            <div class="project-meta">NUS Aviation Club · Aug 2022</div>
+            <p>
+              Conducted training sessions using Cessna aircraft in Microsoft Flight Simulator 2020
+              to teach basic aircraft systems to student enthusiasts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HARDWARE GALLERY -->
+    <section id="hardware">
+      <div class="section-header">
+        <h2 class="section-title">Selected Hardware</h2>
+        <p class="section-subtitle">
+          A sample of boards and wiring work from NUS FSAE. (Replace placeholders with your own images.)
+        </p>
+      </div>
+
+      <div class="hardware-grid">
+        <!-- NOTE: swap src attributes to your real images when you have them -->
+        <article class="hardware-card">
+          <img
+            src="dashboard-pcb-placeholder.png"
+            alt="R25e dashboard PCB with Teensy 4.1 and CAN transceivers"
+            class="hardware-thumb"
+          />
+          <div class="hardware-title">R25e Dashboard PCB</div>
+          <div class="hardware-meta">2-layer · Teensy 4.1 · 3× CAN · Power regulation</div>
+          <p>
+            Custom dashboard board designed in Altium, carrying the Teensy 4.1, three CAN
+            transceivers and on-board regulators. Layout focuses on clean CAN differential
+            routing, decoupling placement and robust connector footprints for the harsh
+            environment of a Formula Student EV.
+          </p>
+        </article>
+
+        <article class="hardware-card">
+          <img
+            src="front-harness-placeholder.png"
+            alt="Front low-voltage harness on the FSAE car"
+            class="hardware-thumb"
+          />
+          <div class="hardware-title">Front LV Harness</div>
+          <div class="hardware-meta">~65 single wires · CAN · Chassis grounds</div>
+          <p>
+            Assisted in building the front harness with around 65 single wires including CAN
+            bus pairs and multiple chassis grounds. Work included crimping, labelling, strain
+            relief and continuity testing, cementing an understanding of current return paths
+            that feeds directly into PCB design practice.
+          </p>
+        </article>
+
+        <article class="hardware-card">
+          <img
+            src="bms-module-placeholder.png"
+            alt="Prototype AMS / BMS module PCB"
+            class="hardware-thumb"
+          />
+          <div class="hardware-title">AMS / BMS Module Prototype</div>
+          <div class="hardware-meta">TLE9012 / TLE9015 · STM32 · iso-UART</div>
+          <p>
+            Prototype supervision module from the R26e Accumulator Management System project,
+            featuring TLE9012/TLE9015 cell monitoring, isolated UART communication and
+            connectors for voltage and temperature sensing looms.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS & EXTRA -->
+    <section id="skills">
+      <div class="section-header">
+        <h2 class="section-title">Skills &amp; Achievements</h2>
+        <p class="section-subtitle">
+          Embedded systems, control, electronics design and software.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skills-group">
+          <h4>Embedded &amp; Electronics</h4>
+          <p class="skills-list">
+            C for STM32 and Teensy · ARM fundamentals · MoTeC M1 Build · CAN bus, UART, SPI ·
+            sensor interfacing · basic power electronics · custom BMS &amp; AMS design.
+          </p>
+        </div>
+
+        <div class="skills-group">
+          <h4>PCB &amp; Hardware Design</h4>
+          <p class="skills-list">
+            2-layer and multi-layer PCB design in Altium · decoupling and power integrity
+            basics · CAN differential routing &amp; termination · connector and harness
+            interfaces · DFM checks and documentation.
+          </p>
+        </div>
+
+        <div class="skills-group">
+          <h4>Modelling, Data &amp; Tools</h4>
+          <p class="skills-list">
+            Python (NumPy, pandas, matplotlib) · MATLAB/Simulink · LTspice · Git · data logging
+            &amp; analysis for vehicle performance and endurance planning.
+          </p>
+        </div>
+
+        <div class="skills-group">
+          <h4>Software &amp; Web</h4>
+          <p class="skills-list">
+            HTML, CSS, JavaScript, SQL · Flask and basic web back-end work · Microsoft Office
+            (Word, PowerPoint, Excel) · UI design for dashboards &amp; telemetry tools.
+          </p>
+        </div>
+
+        <div class="skills-group">
+          <h4>Languages &amp; Interests</h4>
+          <p class="skills-list">
+            English; Bengali (native). Interests: motorsport, sky watching, robotics, gaming
+            and cricket.
+          </p>
+        </div>
+
+        <div class="skills-group">
+          <h4>Awards</h4>
+          <p class="skills-list">
+            Bronze Prize – International Astronomy and Astrophysics Competition (2020).<br />
+            Top 7 – Block Champs Gaming Hackathon (Aug 2022).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <section id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          Happy to discuss opportunities in powertrain electronics, ERS and mechatronics.
+        </p>
+      </div>
+
+      <div class="card">
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+          You can reach me directly by email or connect with me on LinkedIn:
+        </p>
+        <ul>
+          <li>Email:
+            <a href="mailto:sadikfarhan108@gmail.com">sadikfarhan108@gmail.com</a>
+          </li>
+          <li>Phone: <span class="muted">+65 8602 3345</span></li>
+          <li>LinkedIn:
+            <a href="https://www.linkedin.com/in/sadik-mohammad" target="_blank"
+              rel="noreferrer">linkedin.com/in/sadik-mohammad</a>
+          </li>
+          <li>FYP Site:
+            <a href="https://niikhilesh.github.io/Cascadia-System-Integration-HV-and-LV/"
+               target="_blank" rel="noreferrer">
+              Cascadia System Integration – HV &amp; LV
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Sadik Mohammad Farhan</div>
+      <div class="footer-links">
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+      body.classList.add("light");
+      toggleBtn.querySelector(".emoji").textContent = "☀️";
+      toggleBtn.querySelector("span:nth-child(2)").textContent = "Light";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("light");
+      const isLight = body.classList.contains("light");
+      toggleBtn.querySelector(".emoji").textContent = isLight ? "☀️" : "🌙";
+      toggleBtn.querySelector("span:nth-child(2)").textContent = isLight
+        ? "Light"
+        : "Dark";
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+  </script>
+</body>
+</html>
